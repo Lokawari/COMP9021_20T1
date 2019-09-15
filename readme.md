@@ -12,6 +12,14 @@ Pycharm的链接下载地址为：
 在Win10的操作系统上使用SubSystem的方式来配置Python环境
 
     https://www.jetbrains.com/help/pycharm/using-wsl-as-a-remote-interpreter.html
+    
+    
+几点忠告：
+    
+    1。不要代写
+    2。好好学习
+    3。多与人交流，分享
+    4。抱大腿
 
 有需要资料资料或者想问问题，调试代码的可以来主图找，或者加我微信：
 
