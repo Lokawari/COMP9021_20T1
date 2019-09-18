@@ -26,6 +26,11 @@ one_to_one_part_of_mapping = {}
 nonkeys = []
 
 # INSERT YOUR CODE HERE
+# 知识点总结
+# 1.range的用法
+# 2。列表的生成
+# 3.list的内置函数
+# 4。dict的遍历
 
 print()
 print('EDIT THIS PRINT STATEMENT')
