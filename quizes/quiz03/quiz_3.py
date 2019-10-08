@@ -41,6 +41,7 @@ num = '0' * nb_of_leading_zeroes + f'{int(code):o}'
 directions = [(0, 1), (1, 1), (1, 0), (1, -1),
               (0, -1), (-1, -1), (-1, 0), (-1, 1)]
 
+
 current_x, current_y = (0, 0)
 points = {(current_x, current_y): 1}
 
