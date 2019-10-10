@@ -19,6 +19,7 @@ def is_valid(word, arity):
     return False
     # REPLACE THE RETURN STATEMENT ABOVE WITH YOUR CODE
 
+
 try:
     arity = int(input('Input an arity : '))
     if arity < 0:
@@ -31,4 +32,3 @@ if is_valid(word, arity):
     print('The word is valid.')
 else:
     print('The word is invalid.')
-
