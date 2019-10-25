@@ -32,6 +32,10 @@ ARABIC_TO_ROMAN = OrderedDict([
     (1, 'I'),
 ])
 
+romams="I,IV,V,IX,X"
+numbers = "1,4,5,9,10"
+
+
 def get(cur):
     if cur is None:
         return 1
