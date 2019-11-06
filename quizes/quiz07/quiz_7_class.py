@@ -47,9 +47,6 @@ def colour_shapes():
 
                 colour_index += 1
 
-    for row in grid:
-        print(row)
-
     return colour_index
 
 
@@ -71,7 +68,7 @@ def max_number_of_spikes(nb_of_shapes):
                 if count == 1:
                     spikes[value] += 1
 
-    if nb_of_shapes:
+    if nb_of_shapes and spikes.values():
         result = max(spikes.values())
 
     return result
