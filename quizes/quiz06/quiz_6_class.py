@@ -138,7 +138,7 @@ def size_of_largest_parallelogram():
         for x in range(len(grid[0])):
             if grid[y][x] == 1:
                 # 1 1 0 0000 1 11
-                for size in range(2, dim - x):
+                for size in range(2, dim - x + 1):
                     # check the star length 2
                     first = size_of_largest_parallelogram_one((x, y), size)
                     second = size_of_largest_parallelogram_two((x, y), size)
@@ -154,7 +154,7 @@ def get_max(line, index, type=1):
 
     y, x = divmod(index, dim)
     result = 0
-    for step in range(2, dim - x):
+    for step in range(2, dim - x + 1):
         height = 0
         temp = index
         y, x = divmod(index, dim)
@@ -170,7 +170,13 @@ def get_max(line, index, type=1):
                 if x + 1 == dim:
                     break
                 temp = (y + 1) * dim + x + 1
+
+            if temp / dim == y:
+                break
+            # the same
             y, x = divmod(temp, dim)
+
+
         if height > 1:
             result = max(result,height * step)
         else:
@@ -208,7 +214,7 @@ grid = [[int(randrange(density) != 0) for _ in range(dim)]
         ]
 print('Here is the grid that has been generated:')
 display_grid()
-size = size_of_largest_parallelogram_ext()
+size = size_of_largest_parallelogram()
 if size:
     print('The largest parallelogram with horizontal sides '
           f'has a size of {size}.'
