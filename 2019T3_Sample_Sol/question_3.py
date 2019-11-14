@@ -1,5 +1,6 @@
 # COMP9021 19T3 - Rachid Hamadi
 # Sample Exam Question 3
+from collections import defaultdict
 
 
 '''
@@ -45,7 +46,7 @@ def f(n):
     The decomposition of 45100 into prime factors reads:
        45100 = 2^2 x 5^2 x 11 x 41
     '''
-    factors = {}
+    factors = defaultdict(int)
     # Insert your code here
     m = n
     for i in range(2, n + 1):
