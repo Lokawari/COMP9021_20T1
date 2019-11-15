@@ -1,5 +1,6 @@
 # COMP9021 19T3 - Rachid Hamadi
 # Sample Exam Question 8
+from itertools import permutations
 
 
 '''
@@ -57,6 +58,26 @@ def f(letters):
     dictionary = 'dictionary.txt'
     solutions = []
     # Insert your code here
+    # Insert your code here
+    with open(dictionary) as file:
+        dictionary = set([line.strip() for line in file
+                          if len(line.strip()) == len(set(line.strip()))])
+
+    words = sorted(
+        ["".join(x) for i in range(2, len(letters))
+         for x in permutations(letters, i)
+         if "".join(x) in dictionary])
+    for word in words:
+        new_letters = set(letters) - set(word)
+        new_words = sorted(["".join(x)
+                            for x in permutations(new_letters, len(new_letters))
+                            if "".join(x) in dictionary])
+        for new_word in new_words:
+            if (word, new_word) not in solutions \
+                    and (new_word, word) not in solutions:
+                solutions.append((word, new_word))
+
+
     if not solutions:
         print('There is no solution')
     else:
