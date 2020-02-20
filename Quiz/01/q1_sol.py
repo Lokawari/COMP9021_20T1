@@ -11,12 +11,13 @@
 from random import seed, randrange
 import sys
 
+from itertools import zip_longest
 
 try:
     for_seed, length = (int(x) for x in input('Enter two integers, the second '
                                               'one being strictly positive: '
-                                             ).split()
-                       )
+                                              ).split()
+                        )
     if length <= 0:
         raise ValueError
 except ValueError:
@@ -26,36 +27,26 @@ seed(for_seed)
 values = [randrange(1, 7) for _ in range(length)]
 print('Here are the generated values:', values)
 # INSERT CODE HERE
-print('The difference between last and first values is:')
-diff = values[-1] - values[0]
-print('  ',diff)
+
+# print difference
+print(f"\nThe difference between last and first values is:\n   {values[-1] - values[0]}\n")
 
 print('Here are the values represented as horizontal bars:')
 # INSERT CODE HERE
-# create matrix filled by 0
-matrix = []
-for i in range(len(values)):
-    matrix.append([0 for i in range(max(values))])
 
-# set '1' according to values
-for n in range(len(values)):
-    for i in range(values[n]):
-        matrix[n][i] = 1
-    print('    ','* ' * values[n])
+#
+print()
+print("\n".join(["     " + "  ".join(["*" for _ in range(item)]) + ' ' for item in values]))
+print()
 
 print('Here are the values represented as vertical bars, '
       'with a surrounding frame:'
-     )
+      )
 # INSERT CODE HERE
-print('  ','-' * (length * 2 + 3))
-for i in range(-1, -len(matrix[0]) - 1, -1):
-    line = ''
-    for j in range(len(matrix)):
-        if matrix[j][i] == 1:
-            line = line + "* "
-        else:
-            line = line + "  "
-
-    line = "| " + line + "|"
-    print('  ',line)
-print('  ','-' * (length * 2 + 3))
+print()
+print('  ', '-' * (length * 3 + 2))
+lines = [["*" for _ in range(item)] for item in values]
+for line in reversed(["  ".join(item) for item in zip_longest(*lines, fillvalue=" ")]):
+    print("   | " + line + " |")
+print('  ', '-' * (length * 3 + 2))
+print()
